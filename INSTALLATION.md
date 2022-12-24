@@ -93,6 +93,11 @@ server {
         proxy_cache_bypass $http_upgrade;
         proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header   X-Forwarded-Proto $scheme;
+	add_header   Referrer-Policy 'strict-origin-when-cross-origin';
+	add_header   Permissions-Policy 'geolocation=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), vibrate=(), payment=(), notifications=(), push=(), speaker=()';
+	add_header   X-Content-Type-Options 'nosniff';
+	add_header   Strict-Transport-Security 'max-age=63072000';
+	add_header   Content-Security-Policy "default-src 'self';";
     }
 }
 ```
