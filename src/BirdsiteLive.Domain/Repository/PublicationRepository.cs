@@ -27,7 +27,7 @@ namespace BirdsiteLive.Domain.Repository
         {
             if (_unlistedAccounts == null || !_unlistedAccounts.Any()) return false;
 
-            if (string.Compare(_unlistedAccounts, "ALL")) return true;
+            if (_unlistedAccounts.CompareTo("ALL") == 0) return true;
 
             return _unlistedAccounts.Contains(twitterAcct.ToLowerInvariant());
         }
